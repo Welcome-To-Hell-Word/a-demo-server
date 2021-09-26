@@ -22,9 +22,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public String SignIn(User requestBody) {
         String result;
         if ("admin".equals(requestBody.getUsername())&&"admin".equals(requestBody.getPassword())){
-            result=new TheResult().successString();
+            result=new TheResult().successString(requestBody);
         } else {
-            result=new TheResult().failureString();
+            result=new TheResult().failureString("");
         }
         return result;
     }
