@@ -48,6 +48,7 @@ public class TheAspect {
         try {
             Object[]args=proceedingJoinPoint.getArgs();
             if (args!=null&&args.length>1){
+                System.out.println(args[0]);
                 for (int i=0;i<args.length;i++){
                     if (args[i] instanceof String&&args[i]==null){
                         args[i]="";
