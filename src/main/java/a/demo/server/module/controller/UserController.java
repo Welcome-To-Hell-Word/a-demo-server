@@ -31,6 +31,7 @@ public class UserController {
         return iUserService.SignIn(requestBody);
     }
 
+    @Transactional
     @RequestMapping(method = RequestMethod.POST,value = "sign-up")
     public String SignUp(@RequestBody User requestBody){
         User user=new User(
