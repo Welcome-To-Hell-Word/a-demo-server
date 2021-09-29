@@ -6,6 +6,7 @@ import a.demo.server.module.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -24,9 +25,25 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final IUserService iUserService;
 
+    @Transactional
     @RequestMapping(method = RequestMethod.POST,value = "sign-in")
     public @ResponseBody String SignIn(@RequestBody User requestBody){
         return iUserService.SignIn(requestBody);
+    }
+
+    @RequestMapping(method = RequestMethod.POST,value = "add")
+    public String add(@RequestBody User requestBody){
+        User user=new User(
+                requestBody.getId(),
+                requestBody.getUsername(),
+                requestBody.getPassword(),
+                requestBody.getPhoto()
+        );
+        System.err.println(user);
+        boolean isUserAdd=iUserService.save(user);
+        System.err.println(user);
+        System.err.println(isUserAdd);
+        return ""+1/0;
     }
 }
 

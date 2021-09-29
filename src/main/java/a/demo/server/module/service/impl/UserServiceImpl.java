@@ -24,7 +24,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if ("admin".equals(requestBody.getUsername())&&"admin".equals(requestBody.getPassword())){
             result=new TheResult().successString(requestBody);
         } else {
-            result=new TheResult().failureString("");
+            int x=1/0;
+            System.err.println(x);
+            result=new TheResult().failureString("操作失败","500",requestBody);
         }
         return result;
     }

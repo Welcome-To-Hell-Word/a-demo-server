@@ -10,7 +10,9 @@ public class TheAutoGenerator {
     public static void main(String[] args) {
         generator(true,true,true,true,true,true);
     }
-    final static String[] TABLE_NAMES={"user","article","article_comment","article_up_down"};
+//    final static String[] TABLE_NAMES={"user","article","article_comment","article_up_down"};
+//    final static String[] TABLE_NAMES={"role","permission","user_bind_role","role_bind_permission"};
+    final static String[] TABLE_NAMES={};
 
     final static String DRIVER_NAME="com.mysql.cj.jdbc.Driver";
     final static String URL="jdbc:mysql://127.0.0.1:3306/a_database?serverTimezone=UTC";
