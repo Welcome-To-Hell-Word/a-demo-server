@@ -1,8 +1,10 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
 import a.demo.server.module.entity.User;
 import a.demo.server.module.service.IUserService;
+import a.demo.server.module.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/module/user")
-public class UserController {
+public class UserController extends BaseController<User, UserServiceImpl> {
     private final IUserService iUserService;
 
     @Transactional

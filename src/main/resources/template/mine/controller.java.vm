@@ -1,5 +1,7 @@
 package ${package.Controller};
 
+import a.demo.server.base.BaseController;
+import ${package.ServiceImpl}.${table.serviceNameImpl};
 import org.springframework.web.bind.annotation.RequestMapping;
 
 #if(${restControllerStyle})
@@ -32,9 +34,8 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
 #if(${superControllerClass})
 public class ${table.controllerName} extends ${superControllerClass} {
 #else
-public class ${table.controllerName} {
+public class ${table.controllerName} extends BaseController<User, UserServiceImpl> {
 #end
 
 }
-
 #end
