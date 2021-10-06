@@ -31,7 +31,8 @@ public class TheAutoGenerator {
         globalConfig.setFileOverride(false);
         globalConfig.setOpen(true);
         globalConfig.setDateType(DateType.ONLY_DATE);
-        globalConfig.setIdType(IdType.ID_WORKER);
+//        globalConfig.setIdType(IdType.ID_WORKER_STR);
+//        globalConfig.setIdType(IdType.NONE);
         globalConfig.setAuthor("Master Spark");
         autoGenerator.setGlobalConfig(globalConfig);
 
