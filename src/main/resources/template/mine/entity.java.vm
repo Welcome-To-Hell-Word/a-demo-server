@@ -1,5 +1,6 @@
 package ${package.Entity};
 
+import a.demo.server.base.BaseEntity;
 #foreach($pkg in ${table.importPackages})
 import ${pkg};
 #end
@@ -41,7 +42,7 @@ public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}
 #elseif(${activeRecord})
 public class ${entity} extends Model<${entity}> {
 #else
-public class ${entity} implements Serializable {
+public class ${entity} extends BaseEntity implements Serializable {
 #end
 
 #if(${entitySerialVersionUID})
