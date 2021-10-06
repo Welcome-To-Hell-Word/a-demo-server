@@ -43,7 +43,7 @@ public class TheAutoGenerator {
         autoGenerator.setDataSource(dataSourceConfig);
 
         PackageConfig packageConfig=new PackageConfig();
-        packageConfig.setParent(PACKAGE_PARENT+("".equals(PROJECT_MODULE)?"":"."+PROJECT_MODULE));
+        packageConfig.setParent(PACKAGE_PARENT);
         packageConfig.setModuleName(PACKAGE_MODULE);
         packageConfig.setEntity("entity");
         packageConfig.setMapper("mapper");
