@@ -54,6 +54,12 @@ public class TheAutoGenerator {
         autoGenerator.setPackageInfo(packageConfig);
 
         TemplateConfig templateConfig=new TemplateConfig();
+        templateConfig.setEntity("template/mine/entity.java");
+        templateConfig.setMapper("template/mine/mapper.java");
+        templateConfig.setXml("template/mine/mapper.xml");
+        templateConfig.setService("template/mine/service.java");
+        templateConfig.setServiceImpl("template/mine/serviceImpl.java");
+        templateConfig.setController("template/mine/controller.java");
         if (!entity)
             templateConfig.setEntity(null);
         if (!mapper)
