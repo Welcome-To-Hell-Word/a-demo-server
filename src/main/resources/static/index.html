@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <script>
+        function FilesUpLoad(){
+            let xhr=new XMLHttpRequest()
+            xhr.open('post','master-spark/file/files-up-load')
+            xhr.send(new FormData(document.getElementById('FilesUpLoadForm')))
+        }
+    </script>
+    <form id="FilesUpLoadForm">
+        <input type="file" name="file01">
+        <input type="file" name="file02">
+    </form>
+    <button onclick="FilesUpLoad()">FilesUpLoad</button>
+</div>
+</body>
+</html>
