@@ -3,5 +3,7 @@ package ${packageParent}.${packageModule}.entity;
 public class ${className} implements Serializable {
     private static final long serialVersionUID=1L;
 
-    private String id;
+#foreach($column in ${columns})
+    private ${column.columnType} ${column.columnName};
+#end
 }

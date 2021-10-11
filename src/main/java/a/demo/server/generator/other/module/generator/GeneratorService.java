@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -54,6 +51,25 @@ public class GeneratorService {
             put("className",table.get("className"));
             put("packageParent",table.get("packageParent"));
             put("packageModule",table.get("packageModule"));
+
+            put("columns",new ArrayList<Map<String,Object>>(){{
+                add(new HashMap<String,Object>(){{
+                    put("columnName","id");
+                    put("columnType",String.class);
+                }});
+                add(new HashMap<String,Object>(){{
+                    put("columnName","username");
+                    put("columnType",String.class);
+                }});
+                add(new HashMap<String,Object>(){{
+                    put("columnName","password");
+                    put("columnType",String.class);
+                }});
+                add(new HashMap<String,Object>(){{
+                    put("columnName","photo");
+                    put("columnType",String.class);
+                }});
+            }});
         }};
         return velocityContext;
     }
