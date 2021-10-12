@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.HashMap;
 
-public class BaseController<T extends BaseEntity,S extends ServiceImpl> {
+public class BaseController<T,S extends ServiceImpl> {
     @Autowired
     private S service;
     @RequestMapping(value = "save",method = RequestMethod.POST)
@@ -34,10 +34,12 @@ public class BaseController<T extends BaseEntity,S extends ServiceImpl> {
     public Object getById(@PathVariable("id")String id){
         return new TheResult().success(service.getById(id));
     }
-    @RequestMapping(value = "page",method = RequestMethod.POST)
-    public Object page(@RequestBody T t){
+    @RequestMapping(value = {"page","page/{current}","page/{current}/{size}"},method = RequestMethod.POST)
+    public Object page(@RequestBody T t,@PathVariable(value = "current",required = false)Long current,@PathVariable(value = "size",required = false)Long size){
+        current=current==null?1:current;
+        size=size==null?10:size;
         IPage<T>iPage=service.page(
-                new Page(t.getCurrent(),t.getSize()),
+                new Page(current,size),
                 new QueryWrapper(t)
         );
         return new TheResult().success(

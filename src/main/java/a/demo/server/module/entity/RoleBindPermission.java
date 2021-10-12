@@ -2,7 +2,6 @@ package a.demo.server.module.entity;
 
 import java.io.Serializable;
 
-import a.demo.server.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +18,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class RoleBindPermission extends BaseEntity implements Serializable {
+public class RoleBindPermission implements Serializable {
 
     private static final long serialVersionUID=1L;
 
