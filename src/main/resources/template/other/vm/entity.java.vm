@@ -1,6 +1,7 @@
 package ${packageParent}.${packageModule}.entity;
 
 public class ${className} implements Serializable {
+
     private static final long serialVersionUID=1L;
 
 #foreach($column in ${columns})

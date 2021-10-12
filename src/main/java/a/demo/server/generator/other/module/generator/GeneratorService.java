@@ -55,19 +55,19 @@ public class GeneratorService {
             put("columns",new ArrayList<Map<String,Object>>(){{
                 add(new HashMap<String,Object>(){{
                     put("columnName","id");
-                    put("columnType",String.class);
+                    put("columnType","String");
                 }});
                 add(new HashMap<String,Object>(){{
                     put("columnName","username");
-                    put("columnType",String.class);
+                    put("columnType","String");
                 }});
                 add(new HashMap<String,Object>(){{
                     put("columnName","password");
-                    put("columnType",String.class);
+                    put("columnType","String");
                 }});
                 add(new HashMap<String,Object>(){{
                     put("columnName","photo");
-                    put("columnType",String.class);
+                    put("columnType","String");
                 }});
             }});
         }};
@@ -88,7 +88,7 @@ public class GeneratorService {
     private String filePath(String templatePath, Map<String, Object> table) {
         String filePath="";
         String className=(String)table.get("className");
-        String packageName=table.get("packageParent").toString()+table.get("packageModule").toString();
+        String packageName=table.get("packageParent").toString()+"/"+table.get("packageModule").toString();
         if (templatePath.contains("entity.java.vm"))
             filePath=String.format("%s/entity/%s.java",packageName,className);
         if (templatePath.contains("mapper.java.vm"))
