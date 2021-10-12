@@ -3,6 +3,7 @@ package a.demo.server.module.entity;
 import java.io.Serializable;
 
 import a.demo.server.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,6 +23,7 @@ public class UserBindRole extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    @TableId
     private String userId;
 
     private String roleId;

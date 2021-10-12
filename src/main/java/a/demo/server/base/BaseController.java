@@ -30,6 +30,10 @@ public class BaseController<T extends BaseEntity,S extends ServiceImpl> {
     public Object updateById(@RequestBody T t){
         return new TheResult().success(service.updateById(t));
     }
+    @RequestMapping(value = "getById/{id}",method = RequestMethod.POST)
+    public Object getById(@PathVariable("id")String id){
+        return new TheResult().success(service.getById(id));
+    }
     @RequestMapping(value = "page",method = RequestMethod.POST)
     public Object page(@RequestBody T t){
         IPage<T>iPage=service.page(
