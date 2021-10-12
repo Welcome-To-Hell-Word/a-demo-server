@@ -1,5 +1,6 @@
 package a.demo.server.module.entity;
 
+import a.demo.server.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Article implements Serializable {
+public class Article extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID=1L;
 

@@ -1,6 +1,9 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
+import a.demo.server.module.entity.UserBindRole;
+import a.demo.server.module.service.impl.UserBindRoleServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/module/userBindRole")
-public class UserBindRoleController {
+public class UserBindRoleController extends BaseController<UserBindRole, UserBindRoleServiceImpl> {
 
 }
 

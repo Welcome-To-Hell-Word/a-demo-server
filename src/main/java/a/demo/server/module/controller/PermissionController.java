@@ -1,6 +1,9 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
+import a.demo.server.module.entity.Permission;
+import a.demo.server.module.service.impl.PermissionServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/module/permission")
-public class PermissionController {
+public class PermissionController extends BaseController<Permission, PermissionServiceImpl> {
 
 }
 

@@ -1,6 +1,9 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
+import a.demo.server.module.entity.ArticleComment;
+import a.demo.server.module.service.impl.ArticleCommentServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/module/articleComment")
-public class ArticleCommentController {
+public class ArticleCommentController extends BaseController<ArticleComment, ArticleCommentServiceImpl> {
 
 }
 

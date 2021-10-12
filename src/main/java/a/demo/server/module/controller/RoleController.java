@@ -1,6 +1,9 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
+import a.demo.server.module.entity.Role;
+import a.demo.server.module.service.impl.RoleServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/module/role")
-public class RoleController {
+public class RoleController extends BaseController<Role, RoleServiceImpl> {
 
 }
 

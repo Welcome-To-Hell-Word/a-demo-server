@@ -1,6 +1,9 @@
 package a.demo.server.module.controller;
 
 
+import a.demo.server.base.BaseController;
+import a.demo.server.module.entity.RoleBindPermission;
+import a.demo.server.module.service.impl.RoleBindPermissionServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/module/roleBindPermission")
-public class RoleBindPermissionController {
+public class RoleBindPermissionController extends BaseController<RoleBindPermission, RoleBindPermissionServiceImpl> {
 
 }
 
