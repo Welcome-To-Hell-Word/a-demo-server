@@ -18,25 +18,25 @@ public class BaseController<T extends BaseEntity,S extends ServiceImpl> {
     @Autowired
     private S service;
     @RequestMapping(value = "save",method = RequestMethod.POST)
-    public String save(@RequestBody T t){
+    public Object save(@RequestBody T t){
         service.save(t);
-        return new TheResult().successString(t);
+        return new TheResult().success(t);
     }
     @RequestMapping(value = "removeById/{id}",method = RequestMethod.POST)
-    public String removeById(@PathVariable("id")String id){
-        return new TheResult().successString(service.removeById(id));
+    public Object removeById(@PathVariable("id")String id){
+        return new TheResult().success(service.removeById(id));
     }
     @RequestMapping(value = "updateById",method = RequestMethod.POST)
-    public String updateById(@RequestBody T t){
-        return new TheResult().successString(service.updateById(t));
+    public Object updateById(@RequestBody T t){
+        return new TheResult().success(service.updateById(t));
     }
     @RequestMapping(value = "page",method = RequestMethod.POST)
-    public String page(@RequestBody T t){
+    public Object page(@RequestBody T t){
         IPage<T>iPage=service.page(
                 new Page(t.getCurrent(),t.getSize()),
                 new QueryWrapper(t)
         );
-        return new TheResult().successString(
+        return new TheResult().success(
                 new HashMap<String,Object>(){{
                     put("TheResult",iPage.getRecords());
                     put("ThePage",new ThePage(iPage));
