@@ -1,5 +1,6 @@
 package a.demo.server;
 
+import a.demo.server.socket.SocketServer;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
 import org.mybatis.spring.annotation.MapperScan;
@@ -16,6 +17,7 @@ public class TheApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context=SpringApplication.run(TheApplication.class,args);
         System.err.println(context);
+        context.getBean(SocketServer.class).start();
     }
 
     @Bean
