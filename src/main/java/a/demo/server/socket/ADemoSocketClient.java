@@ -26,6 +26,7 @@ public class ADemoSocketClient {
                 {
                     setName("1");
                 }
+                System.err.println(this.getStackTrace()+" "+this.getId()+" "+this.getName());
             }
         }.run();
     }
