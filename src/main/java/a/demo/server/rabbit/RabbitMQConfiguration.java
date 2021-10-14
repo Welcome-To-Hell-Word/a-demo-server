@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfiguration {
-    public static final String QUEUE="";
+    public static final String QUEUE="a-demo-server-queue";
 
     @Bean
     public MessageConverter messageConverter(){
