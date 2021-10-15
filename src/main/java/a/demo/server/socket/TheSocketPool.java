@@ -3,7 +3,7 @@ package a.demo.server.socket;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class TheSocketPool {
-    private static final ConcurrentHashMap<String,SocketClient>ONLINE_SOCKET_MAP=new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String,SocketClient>ONLINE_SOCKET_MAP=new ConcurrentHashMap<>();
     public static void add(SocketClient socketClient){
         if (socketClient!=null&&!socketClient.getKey().isEmpty()){
             ONLINE_SOCKET_MAP.put(socketClient.getKey(),socketClient);

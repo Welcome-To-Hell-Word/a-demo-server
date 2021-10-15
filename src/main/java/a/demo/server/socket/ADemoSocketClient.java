@@ -18,17 +18,17 @@ public class ADemoSocketClient {
             @Override
             public void run() {
                 super.run();
+                {
+                    setName("线程1");
+                }
+                System.err.println(this+" "+this.getId()+" "+this.getName());
                 try {
                     open(host,port);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                {
-                    setName("1");
-                }
-                System.err.println(this.getStackTrace()+" "+this.getId()+" "+this.getName());
             }
-        }.run();
+        }.start();
     }
 
     private static void open(String host,int port) throws Exception {
@@ -43,8 +43,14 @@ public class ADemoSocketClient {
         while (true){
             byte[]bytes=new byte[1024];
             dataInputStream.read(bytes);
-            message+=new String(bytes,"UTF-8");
-            FileWriter fileWriter=new FileWriter(new File("./target/json.json"));
+            String s=new String(bytes,"UTF-8");
+            log.info("{} 收到信息 : {}",uuid,s);
+            if (!s.isEmpty()){
+                message+="-- ";
+                message+=s;
+                message+="\n";
+            }
+            FileWriter fileWriter=new FileWriter(new File("./target/"+uuid+".json"));
             fileWriter.write(message);
             fileWriter.flush();
         }

@@ -28,7 +28,7 @@ public class SocketClient implements Runnable {
             }
             if (isSocketClosed(this)){
                 close(this);
-                log.info("{}",this.getKey());
+                log.info("客户端 {} 已关闭",this.getKey());
                 break;
             }
         }

@@ -1,15 +1,19 @@
 package a.demo.server.socket;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
 import static a.demo.server.socket.TheSocketPool.*;
 
+@Slf4j
 public class SocketTools {
     public static boolean isSocketClosed(SocketClient socketClient){
         try {
             socketClient.getSocket().sendUrgentData(1);
+            log.info("检测 {} 状态",socketClient.getKey());
             return false;
         } catch (Exception e) {
             return true;
@@ -53,6 +57,7 @@ public class SocketTools {
     public static void sendMessage(SocketClient socketClient,String message){
         try {
             socketClient.getDataOutputStream().write(message.getBytes("UTF-8"));
+            log.info("发送信息 {} 到 {}",message,socketClient.getKey());
         } catch (Exception e) {
             e.printStackTrace();
             close(socketClient);
