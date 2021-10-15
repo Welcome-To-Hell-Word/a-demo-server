@@ -45,7 +45,7 @@ public class SocketTools {
             socketClient.setDataOutputStream(new DataOutputStream(socket.getOutputStream()));
             byte[]bytes=new byte[1024];
             socketClient.getDataInputStream().read(bytes);
-            socketClient.setKey(new String(bytes,"UTF-8"));
+            socketClient.setKey(new String(bytes,"UTF-8").trim());
             add(socketClient);
             return socketClient;
         } catch (Exception e) {
@@ -55,6 +55,19 @@ public class SocketTools {
     }
 
     public static void sendMessage(SocketClient socketClient,String message){
+        try {
+            socketClient.getDataOutputStream().write(message.getBytes("UTF-8"));
+            log.info("发送信息 {} 到 {}",message,socketClient.getKey());
+        } catch (Exception e) {
+            e.printStackTrace();
+            close(socketClient);
+        }
+    }
+
+    public static void sendMessage(String key,String message){
+        SocketClient socketClient=ONLINE_SOCKET_MAP.get(key);
+        if (socketClient==null)
+            return;
         try {
             socketClient.getDataOutputStream().write(message.getBytes("UTF-8"));
             log.info("发送信息 {} 到 {}",message,socketClient.getKey());
