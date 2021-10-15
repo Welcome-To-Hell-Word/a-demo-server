@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("socket")
 @Controller
 public class ADemoControllerOfSocket {
-    @RequestMapping(value = {"sendMessage/{message}","sendMessage/{message}/{key}"})
+    @RequestMapping(value = {"sendMessage","sendMessage/{message}","sendMessage/{message}/{key}"})
     public @ResponseBody Object sendMessage(@PathVariable(value = "message",required = false)String message,@PathVariable(value = "key",required = false)String key){
         if (Strings.isNullOrEmpty(message)){
             message="message";
